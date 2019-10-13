@@ -9,6 +9,9 @@
       <%= link_to course.title, course_path(course) %>
     </h2>
     <h2 class="text-center"><%= course.title %></h2>
+      <%= image_tag @course.image %>
+      <br />
+      <%= f.input :image %>
       <br />
       <div class="row">
         <div class="col-sm-8 col-12">
