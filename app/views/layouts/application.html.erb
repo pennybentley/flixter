@@ -17,12 +17,14 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <%= link_to 'Penny Flixter', root_path, class: 'navbar-brand' %>
+
+
       <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
         <ul class="navbar-nav mr-auto mt-2 mt-md-0">
          <li class="nav-item">
           <%= link_to 'See All Courses', courses_path, class: 'nav-link' %>
          </li>
-    <ul class="navbar-nav">
+        <ul class="navbar-nav">
       <% if user_signed_in? %>
           <li class="nav-item">
             <%= link_to 'Sign out', destroy_user_session_path, method: :delete, class: 'nav-link' %>
@@ -60,6 +62,7 @@
 
     <script src="http://vjs.zencdn.net/5.12.6/video.js"></script>
     <script src="http://vjs.zencdn.net/ie8/1.1.2/videojs-ie8.min.js"></script>
-    
+
   </body>
+ </div>
 </html>
