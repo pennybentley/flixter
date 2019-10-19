@@ -4,12 +4,12 @@ class Instructor::LessonsController < ApplicationController
    before_action :require_authorized_for_current_lesson, only: [:update]
 
   def new
-     @section = Section.find(params[:section_id])
-     @lesson = Lesson.new
+    @section = current_section
+    @lesson = Lesson.new
   end
 
   def create
-    @section = Section.find(params[:section_id])
+    @section = current_section
     @lesson = current_section.lessons.create(lesson_params)
     redirect_to instructor_course_path(current_section.course)
   end
@@ -21,6 +21,12 @@ class Instructor::LessonsController < ApplicationController
 
   private
 
+  helper_method :current_section
+  def current_section
+    @current_section ||= Section.find(params[:section_id])
+  end
+
+  helper_method :current_lesson
   def current_lesson
     @current_lesson ||= Lesson.find(params[:id])
   end
@@ -36,12 +42,6 @@ class Instructor::LessonsController < ApplicationController
       render plain: 'Unauthorized', status: :unauthorized
     end
   end
-
-  helper_method :current_section
-  def current_section
-    @current_section ||= Section.find(params[:section_id])
-  end
-
 
   def lesson_params
     params.require(:lesson).permit(:title, :subtitle, :video, :row_order_position)
