@@ -1,18 +1,6 @@
 <br />
 <script>
   $(function() {
-    $('.lessons').sortable({
-        update: function( event, ui ) {
-        $.ajax({
-          type: 'PUT',
-          url: ui.item.data('update-url'),
-          dataType: 'json',
-          data: { lesson: { row_order_position: ui.item.index() } }
-        });
-      } 
-     });
-  });
-  $(function() {
     $('.sections').sortable({
         update: function( event, ui ) {
         $.ajax({
@@ -23,6 +11,18 @@
         });   
       }
     });
+  });
+  $(function() {
+    $('.lessons').sortable({
+        update: function( event, ui ) {
+        $.ajax({
+          type: 'PUT',
+          url: ui.item.data('update-url'),
+          dataType: 'json',
+          data: { lesson: { row_order_position: ui.item.index() } }
+        });
+      } 
+     });
   });
 </script>
 <div class="booyah-box col-10 offset-1">
