@@ -7,12 +7,7 @@
     <span class="badge badge-default">
       <%= number_to_currency @course.cost %>
     </span>
-
-    <% if current_user && current_user == @course.user %>
-      <br />
-      <br />
-      <%= link_to 'Administer', instructor_course_path(@course), class: 'btn btn-danger btn-large' %>
-    <% end %>
+    
     <br />
     <br />
   <% if current_user %>
@@ -32,12 +27,19 @@
         <% end %>
       <% end %>
     <% end %> 
+
+<% if current_user && current_user == @course.user %>
+      <br />
+      <br />
+      <%= link_to 'Administer', instructor_course_path(@course), class: 'btn btn-danger btn-large' %>
+    <% end %>
+
   <% else %>
     <h3 class="badge badge-info">Sign In to Enroll!</h3>
   <% end %>
 
   </div>
-  <div class="col- sm-8 col-12">
+  <div class="col-sm-8 col-12">
     <%= @course.description %>
         <br />
     <br />

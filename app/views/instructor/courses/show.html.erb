@@ -55,10 +55,6 @@ $(function() {
       <li data-update-url="<%= instructor_section_path section %>" class="section-li">
         <span class="fa fa-ellipsis-v"></span>
         <%= section.title %>
-        <div class="header">
-          <span class="fa fa-ellipsis-v"></span>
-          <%= section.title %>
-        </div>
           <!-- Button trigger modal -->
           <button type="button" class="btn btn-primary btn-lg float-right new-lesson-button" data-toggle="modal" data-target="#newLessonModal" data-lesson-url="<%= instructor_section_lessons_path(section) %>">
               Add a new Lesson
@@ -75,7 +71,6 @@ $(function() {
                 </div>
                   <div class="col-11 text-center">
                     <p>
-                      Lessons
                       <b><%= lesson.title %></b>
                     </p>
                     <p>
@@ -116,7 +111,6 @@ $(function() {
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
       </div>
     </div>
   </div>
@@ -140,11 +134,11 @@ $(function() {
           <%= f.input :title %>
           <%= f.input :subtitle %>
           <%= f.input :video %>
-          <%= f.submit "Add the lesson", class: 'btn btn-primary' %>
+
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
+          <%= f.submit "Add the lesson", class: 'btn btn-primary' %>         
         </div>
       <% end %>
     </div>
